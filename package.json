@@ -1,0 +1,25 @@
+{
+  "name": "martinbarra.github.io",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "format": "prettier -w .",
+    "lint": "prettier -c ."
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "astro": "^5.13.8",
+    "tailwindcss": "^3.4.4"
+  },
+  "devDependencies": {
+    "@astrojs/ts-plugin": "^1.10.4",
+    "prettier": "^3.3.2",
+    "prettier-plugin-astro": "^0.14.0",
+    "prettier-plugin-tailwindcss": "^0.6.8"
+  }
+}
