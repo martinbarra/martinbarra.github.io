@@ -144,8 +144,8 @@ const leetCodeProblems = [
     </div>
   </section>
 
-  <!-- Sección de Game Dev -->
-  <section id="game-dev" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-gray-900 to-gray-800">
+  <!-- Sección de GameDev -->
+  <section id="gamedev" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <span class="inline-block px-4 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-4">
@@ -198,11 +198,10 @@ const leetCodeProblems = [
       
       <div class="mt-16 bg-gray-800/30 backdrop-blur-sm p-8 rounded-2xl border border-gray-700/50 max-w-4xl mx-auto">
         <h3 class="text-2xl font-bold text-white mb-4">Sobre mi viaje en Game Dev</h3>
-        <p class="text-gray-300 mb-6">
-          Como desarrollador de videojuegos, me especializo en crear experiencias únicas que combinan mecánicas innovadoras con narrativas cautivadoras. 
-          Cada proyecto es una nueva aventura donde exploro diferentes géneros y tecnologías.
+        <p class="text-gray-300 mb-4">
+          Mi pasión por los videojuegos me ha llevado a explorar el desarrollo de experiencias interactivas únicas. Me enfoco en crear mecánicas de juego innovadoras y narrativas envolventes que cautiven a los jugadores.
         </p>
-        <div class="flex flex-wrap justify-center gap-3">
+        <div class="flex flex-wrap gap-2 mt-4">
           {['Unity', 'C#', 'Game Design', 'Blender', 'Shaders', 'AI'].map(skill => (
             <span class="px-4 py-2 bg-cyan-500/10 text-cyan-400 rounded-full text-sm">
               {skill}
@@ -251,8 +250,8 @@ const leetCodeProblems = [
     </div>
   </section>
 
-  <!-- Sección de Proyectos -->
-  <section id="proyectos" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+  <!-- Sección de WebDev -->
+  <section id="webdev" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16">
         <span class="inline-block px-4 py-1 rounded-full bg-yellow-500/10 text-yellow-400 text-sm font-medium mb-4">
@@ -301,12 +300,12 @@ const leetCodeProblems = [
     </div>
   </section>
 
-  <!-- Sección de LeetCode -->
+  <!-- Sección de LeetCode / Ethical Hacking -->
   <section id="leetcode" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
         <span class="inline-block px-4 py-1 rounded-full bg-purple-500/10 text-purple-400 text-sm font-medium mb-4">
-          LeetCode
+          LeetCode / Ethical Hacking
         </span>
         <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
           Resolución de problemas
@@ -394,6 +393,79 @@ const leetCodeProblems = [
                 style={`width: ${lang.percentage}%`}
               ></div>
             </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección de Otros -->
+  <section id="otros" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="inline-block px-4 py-1 rounded-full bg-blue-500/10 text-blue-400 text-sm font-medium mb-4">
+          Intereses
+        </span>
+        <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Otras Pasiones
+        </h2>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+          Más allá del desarrollo, estos son algunos de mis intereses y hobbies.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {[
+          {
+            title: 'Gaming Profiles',
+            icon: '🎮',
+            items: [
+              { name: 'League of Legends', username: 'TuUsuarioLoL' },
+              { name: 'osu!', username: 'TuUsuarioOsu' },
+              { name: 'Chess.com', username: 'TuUsuarioChess' },
+              { name: 'Clash Royale', username: 'TuUsuarioCR' },
+              { name: 'Clash of Clans', username: 'TuUsuarioCoC' },
+            ]
+          },
+          {
+            title: 'Música',
+            icon: '🎵',
+            items: [
+              'Artistas favoritos',
+              'Géneros preferidos',
+              'Bandas destacadas'
+            ]
+          },
+          {
+            title: 'Piano',
+            icon: '🎹',
+            items: [
+              'Clásicos',
+              'Bandas sonoras',
+              'Canciones favoritas'
+            ]
+          }
+        ].map((section) => (
+          <div class="bg-gray-800/50 rounded-xl p-6 border border-gray-700/50 hover:border-blue-500/30 transition-colors">
+            <div class="flex items-center mb-4">
+              <span class="text-3xl mr-3">{section.icon}</span>
+              <h3 class="text-2xl font-bold text-white">{section.title}</h3>
+            </div>
+            <ul class="space-y-2">
+              {section.items.map((item) => (
+                <li class="flex items-center text-gray-300">
+                  <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                  {typeof item === 'string' ? (
+                    <span>{item}</span>
+                  ) : (
+                    <>
+                      <span class="font-medium">{item.name}:</span>
+                      <span class="ml-2 text-blue-400">{item.username}</span>
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
       </div>

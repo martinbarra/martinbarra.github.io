@@ -1,10 +1,17 @@
 ---
 const navItems = [
-  { name: 'Inicio', target: 'inicio', element: 'viento' },
-  { name: 'Proyectos', target: 'proyectos', element: 'electrico' },
-  { name: 'LeetCode', target: 'leetcode', element: 'veneno' },
-  { name: 'Idiomas', target: 'idiomas', element: 'agua' },
-  { name: 'Otros', target: 'otros', element: 'sonido' },
+  { name: 'Inicio', target: '#inicio', element: 'viento' },
+  { name: 'GameDev', target: '#gamedev', element: 'fuego' },
+  { name: 'WebDev', target: '#webdev', element: 'electrico' },
+  { name: 'LeetCode / Ethical Hacking', target: '#leetcode', element: 'veneno' },
+  { name: 'Idiomas', target: '#idiomas', element: 'agua' },
+  { 
+    name: 'Otros', 
+    target: '#otros', 
+    element: 'sonido',
+    className: 'opacity-70 hover:opacity-100 transition-opacity'
+  },
+  { name: 'Contacto', target: '#contacto', element: 'tierra' },
 ];
 ---
 
@@ -19,12 +26,12 @@ const navItems = [
         {
           navItems.map((item) => (
             <a 
-              href={`#${item.target}`}
+              href={item.target}
               class={`element-${item.element} px-4 py-2 rounded-full font-medium transition-all element-hover ${
-                Astro.url.hash === `#${item.target}`
+                Astro.url.hash === `#${item.target}` || Astro.url.pathname === item.target
                   ? 'element-bg text-white' 
                   : 'text-gray-300 hover:text-white'
-              }`}
+              } ${item.className || ''}`}
             >
               {item.name}
             </a>
@@ -42,17 +49,17 @@ const navItems = [
   </div>
   
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="md:hidden hidden bg-gray-800/95">
-    <div class="px-2 pt-2 pb-3 space-y-1">
+  <div id="mobile-menu" class="md:hidden hidden bg-gray-900/95 backdrop-blur-lg">
+    <div class="px-6 py-4 space-y-4">
       {
         navItems.map((item) => (
           <a 
-            href={`#${item.target}`}
-            class={`block px-3 py-2 rounded-md text-base font-medium ${
-              Astro.url.hash === `#${item.target}`
-                ? 'bg-gray-900 text-white' 
-                : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-            }`}
+            href={item.target}
+            class={`block px-4 py-3 rounded-lg text-lg font-medium transition-colors ${
+              Astro.url.hash === `#${item.target}` || Astro.url.pathname === item.target
+                ? 'element-bg text-white' 
+                : 'text-gray-300 hover:bg-gray-800/50 hover:text-white'
+            } ${item.className || ''}`}
           >
             {item.name}
           </a>
