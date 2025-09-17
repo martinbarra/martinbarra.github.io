@@ -1,1 +1,24 @@
 asdf
+
+leetcode/ ethical.hacking. -> veneno 
+
+idiomas -> agua 
+    english -> 100% read/ write/ speak/ listen
+    spanish -> 100% read/ write/ speak/ listen
+    portuguese -> 100% read/ 90%write/ 50%speak/ 75%listen
+    italiano -> 100% read/ 75%write/ 25%speak/ 50%listen
+    japones -> 25% read/ 75%write/ 50%speak/ 75%listen
+    ruso -> 25% read/ 25%write/ 25%speak/ 25%listen
+
+game dev -> viento 
+    inflorescence (puzzle, kaplay, cellphone/pc)
+    rpg boss fight (rpg, kaplay, pc)
+    scopaesthesia (visual novel, kaplay, cellphone/pc)
+    speed of mind (endless runner, kaplay, cellphone/pc)
+    
+proyectos -> electrico 
+
+otros -> sonido/ritmo
+    perfil de: LoL, osu!, chess, clash royale, clash of clans
+    piano: canciones que me se
+    musica: grupos favoritos

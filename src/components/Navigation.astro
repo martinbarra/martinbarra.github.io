@@ -1,0 +1,104 @@
+---
+const navItems = [
+  { name: 'Inicio', target: 'inicio', element: 'viento' },
+  { name: 'Proyectos', target: 'proyectos', element: 'electrico' },
+  { name: 'LeetCode', target: 'leetcode', element: 'veneno' },
+  { name: 'Idiomas', target: 'idiomas', element: 'agua' },
+  { name: 'Otros', target: 'otros', element: 'sonido' },
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-md z-50 shadow-lg">
+  <div class="container mx-auto px-6 py-4">
+    <div class="flex justify-between items-center">
+      <a href="#inicio" class="text-2xl font-bold element-viento element-text hover:opacity-80 transition-opacity">
+        MB
+      </a>
+      
+      <div class="hidden md:flex space-x-8">
+        {
+          navItems.map((item) => (
+            <a 
+              href={`#${item.target}`}
+              class={`element-${item.element} px-4 py-2 rounded-full font-medium transition-all element-hover ${
+                Astro.url.hash === `#${item.target}`
+                  ? 'element-bg text-white' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
+            >
+              {item.name}
+            </a>
+          ))
+        }
+      </div>
+      
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-gray-800/95">
+    <div class="px-2 pt-2 pb-3 space-y-1">
+      {
+        navItems.map((item) => (
+          <a 
+            href={`#${item.target}`}
+            class={`block px-3 py-2 rounded-md text-base font-medium ${
+              Astro.url.hash === `#${item.target}`
+                ? 'bg-gray-900 text-white' 
+                : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+            }`}
+          >
+            {item.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Toggle mobile menu
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+
+  // Cerrar menú móvil al hacer clic en un enlace
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+    });
+  });
+
+  // Scroll suave para los enlaces internos
+  document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
+    anchor.addEventListener('click', (e: Event) => {
+      e.preventDefault();
+      
+      const targetId = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      
+      try {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      } catch (error) {
+        console.error('Error during smooth scroll:', error);
+      }
+    });
+  });
+</script>
